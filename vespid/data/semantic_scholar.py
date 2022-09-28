@@ -466,7 +466,7 @@ def query_semantic_scholar(
     max_workers = int(max_concurrent_requests / n_jobs)
     logger.info(f"Using {max_workers} concurrent query workers per job")
 
-#     idx_name = 'index'
+    idx_name = 'index'
     if query_type == 'keyword':
         request_query_iterables = {'identifier': identifiers}
     else:
