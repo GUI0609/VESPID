@@ -90,7 +90,6 @@ def build_urls(
         'title',
         'abstract',
         'venue',
-        'year',
         'referenceCount',
         'citationCount',
         'influentialCitationCount',
@@ -467,7 +466,7 @@ def query_semantic_scholar(
     max_workers = int(max_concurrent_requests / n_jobs)
     logger.info(f"Using {max_workers} concurrent query workers per job")
 
-    idx_name = 'index'
+#     idx_name = 'index'
     if query_type == 'keyword':
         request_query_iterables = {'identifier': identifiers}
     else:
@@ -487,7 +486,7 @@ def query_semantic_scholar(
                                      score_threshold=score_threshold
                                      )
 
-    output = pd.DataFrame(results).set_index(idx_name)
+    output = pd.DataFrame(results).reset_index()
     
     if output.empty:
         logger.warning(f"S2 query of type {query_type} returned no results, "
