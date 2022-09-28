@@ -486,7 +486,7 @@ def query_semantic_scholar(
                                      score_threshold=score_threshold
                                      )
 
-    output = pd.DataFrame(results).reset_index()
+    output = pd.DataFrame(results).set_index(idx_name)
     
     if output.empty:
         logger.warning(f"S2 query of type {query_type} returned no results, "
