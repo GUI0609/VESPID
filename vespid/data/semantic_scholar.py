@@ -506,7 +506,7 @@ def query_semantic_scholar(
         num_null_ids = output[unique_id].isnull().sum()
         num_records_found = output[unique_id].notnull().sum()
     except KeyError as e:
-        logger.info(f"{output.head()=}")
+        logger.info(f"{output.head()}")
         output.info()
         logger.error("Something wrong with the unique S2 id")
         raise e
